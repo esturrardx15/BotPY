@@ -6,6 +6,7 @@ pyautogui.PAUSE=0.5 #Tempo, em segundos, que terá de intervalo entre uma linha 
 # pyautogui.click -> clicar
 # pyautogui.press -> pressionar tecla
 # pyautogui.write -> escrever
+# payautogui.hotkey -> atalho do teclado
 
 # Passo 1: Abrir sistema
 pyautogui.press("win")
