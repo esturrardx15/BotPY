@@ -5,7 +5,7 @@ import pyautogui
 import time
 import pandas
 
-pyautogui.PAUSE=1.5 #Tempo, em segundos, que terá de intervalo entre uma linha de codigo e outra
+pyautogui.PAUSE=2 #Tempo, em segundos, que terá de intervalo entre uma linha de codigo e outra
 
 # pyautogui.click -> clicar
 # pyautogui.press -> pressionar tecla
@@ -21,13 +21,13 @@ pyautogui.write(link) #Digita informação desejada
 pyautogui.press("enter")
 
 # Passo 2: Login
-time.sleep(4) #Tempo de pausa até executar a proxima linha (vai de acordo com a sua maquina/internet)
+time.sleep(5) #Tempo de pausa até executar a proxima linha (vai de acordo com a sua maquina/internet)
 pyautogui.click (x=689, y=388) #Posção que o mouse precisa clicar na tela (informação retirada ao executar arquivo auxi.py)
 pyautogui.write ("blablabl@blablabla.com")
 pyautogui.press("tab")
 pyautogui.write("blablabl")
 pyautogui.press("enter")
-time.sleep(4)
+time.sleep(5)
 
 # Passo 3: Importar a base de dados dos produtos
 tabela = pandas.read_csv("produtos.csv")
@@ -67,9 +67,12 @@ for linha in tabela.index:
     pyautogui.press("tab")
 
     #Obs
-    obs = ""
-    pyautogui.write(str(obs))
+    obs = str(tabela.loc[linha,"obs"])
+    
+    if obs != "nan":
+        pyautogui.write(obs)
     pyautogui.press("tab")
+
     pyautogui.press("enter")
 
     pyautogui.press("home")
