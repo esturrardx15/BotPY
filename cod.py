@@ -5,7 +5,7 @@ import pyautogui
 import time
 import pandas
 
-pyautogui.PAUSE=2 #Tempo, em segundos, que terá de intervalo entre uma linha de codigo e outra
+pyautogui.PAUSE=1 #Tempo, em segundos, que terá de intervalo entre uma linha de codigo e outra
 
 # pyautogui.click -> clicar
 # pyautogui.press -> pressionar tecla
@@ -21,20 +21,20 @@ pyautogui.write(link) #Digita informação desejada
 pyautogui.press("enter")
 
 # Passo 2: Login
-time.sleep(5) #Tempo de pausa até executar a proxima linha (vai de acordo com a sua maquina/internet)
+time.sleep(3) #Tempo de pausa até executar a proxima linha (vai de acordo com a sua maquina/internet)
 pyautogui.click (x=689, y=388) #Posção que o mouse precisa clicar na tela (informação retirada ao executar arquivo auxi.py)
 pyautogui.write ("blablabl@blablabla.com")
 pyautogui.press("tab")
 pyautogui.write("blablabl")
 pyautogui.press("enter")
-time.sleep(5)
+time.sleep(3)
 
 # Passo 3: Importar a base de dados dos produtos
 tabela = pandas.read_csv("produtos.csv")
 
 # Passo 4: Cadastrar 1 produto
 for linha in tabela.index:
-    pyautogui.click(x=692, y=272)
+    pyautogui.click(x=727, y=277)
 
     #Codigo
     codigo = tabela.loc[linha,"codigo"]
